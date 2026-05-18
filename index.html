@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Glass Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+    <script src="https://kit.fontawesome.com/0599814c65.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="liquid-bg"></div>
+    <div id="dynamic-bg" class="dynamic-bg"></div>
+    <div class="app-container">
+        <!-- Section Centrale : Le Lecteur -->
+        <main class="player-view">
+            <div class="now-playing-large">
+                <div class="art-and-lyrics">
+                    <div class="album-art-huge">
+                        <img id="current-art-img" src="" style="display: none;">
+                        <div id="art-placeholder" class="art-placeholder-huge"><i class="fa-solid fa-music"></i></div>
+                    </div>
+                    <div id="lyrics-container" class="lyrics-view" style="display: none;">
+                        <div id="lyrics-content">Cliquez sur <i class="fa-solid fa-microphone"></i> pour les paroles</div>
+                    </div>
+                </div>
+                <div class="track-details-large">
+                    <h1 id="current-title">Choisissez une musique</h1>
+                    <h3 id="current-artist">Prêt à jouer</h3>
+                </div>
+            </div>
+
+            <div class="player-controls-center">
+                <div class="progress-area">
+                    <span id="current-time">0:00</span>
+                    <input type="range" id="progress-bar" value="0" min="0" max="100">
+                    <span id="total-duration">0:00</span>
+                </div>
+
+                <div class="main-buttons">
+                    <button id="shuffle-btn" class="btn-ctrl-extra" title="Aléatoire"><i class="fa-solid fa-shuffle"></i></button>
+                    <button id="prev-btn" class="btn-ctrl"><i class="fa-solid fa-backward-step"></i></button>
+                    <button id="play-btn" class="btn-play-large"><i class="fa-solid fa-play"></i></button>
+                    <button id="next-btn" class="btn-ctrl"><i class="fa-solid fa-forward-step"></i></button>
+                    <button id="lyrics-btn" class="btn-ctrl-extra" title="Paroles"><i class="fa-solid fa-microphone"></i></button>
+                </div>
+
+                <div class="volume-area">
+                    <span><i class="fa-solid fa-volume-low"></i></span>
+                    <input type="range" id="volume-slider" value="80" min="0" max="100">
+                    <span><i class="fa-solid fa-volume-high"></i></span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Section Droite : Playlist et Recherche -->
+        <aside class="playlist-sidebar">
+            <header class="sidebar-header">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+                    <div id="search-suggestions" class="suggestions-dropdown"></div>
+                </div>
+            </header>
+            
+            <div class="playlist-container">
+                <h2 class="playlist-title">Ma Bibliothèque</h2>
+                <ul id="playlist">
+                    <!-- Musiques injectées ici -->
+                </ul>
+            </div>
+        </aside>
+    </div>
+    
+    <footer class="main-footer">
+        <p>MoussaMontassar fait avec amour askip</p>
+    </footer>
+
+    <audio id="audio-element"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

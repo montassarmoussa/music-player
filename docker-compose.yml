@@ -1,0 +1,10 @@
+services:
+  spotdl:
+    build: .
+    image: spotdl-custom:latest
+    container_name: spotdl
+    user: "${PUID:-1000}:${PGID:-1000}"
+    volumes:
+      - ./downloads:/music
+    working_dir: /music
+    # Lance via : docker compose run --rm spotdl download <URL>
